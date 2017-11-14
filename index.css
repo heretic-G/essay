@@ -1,0 +1,16 @@
+.animate{
+    position: absolute;
+    height: 1000px;
+    width: 1000px;
+    background: red;
+    top: 0;
+    left: 0;
+}
+.child{
+	position: absolute;
+    height: 100px;
+    width: 10px;
+    background: green;
+    top: 0;
+    left: 0;
+}
