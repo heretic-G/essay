@@ -1,5 +1,5 @@
-var allNum = 0;
-var completeNum = 0;
+let allNum = 0;
+let completeNum = 0;
 function log(e){
 	completeNum+=1;
 	console.log('completeNum'+completeNum);
