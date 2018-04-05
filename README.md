@@ -112,7 +112,24 @@
     }
 ```
 这种其实就是在参数满足fn的个数的时候调用或者别的判断调用方式也可以 比如不传参数的时候
+### 缓存函数
+```javascript
+    function cache(fn){
+        let cache = Object.create(null);
+        return function(str){
+            let hit = cache[str];
+            return hit || (cache[str] = cb(str))
+        }
+    }
+```
+缓存函数算是我们在开发中比较常用的方法
 
+### vertical-align
+定义行内元素的基线 就是水平如何对齐 默认就是baseline
+inline block根据自己最后一个line box 的基线算 没有就按照margin-bottom 算
+那其实注意的地方就只有一点 就是overflow的设置 如果一个inline-block设置了非visible那么他不在根据自己最后一个line box 的基线来计算而是根据margin-bottom来算 
+
+造成这样的原因很简单 如果设置overflow 浏览器不知道最后一个line box还是否会展示出来
 
 
 
