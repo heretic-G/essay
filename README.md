@@ -131,6 +131,9 @@ inline block根据自己最后一个line box 的基线算 没有就按照margin-
 
 造成这样的原因很简单 如果设置overflow 浏览器不知道最后一个line box还是否会展示出来
 
+### em
+只要一个注意点 也是目前很多人错误的地方 这个值是根据自身的font-size 来计算 只有在font-size上是根据父节点的font-size来计算 (不知道为什么很多博客都发错这个)
+
 
 
 
