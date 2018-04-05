@@ -74,3 +74,46 @@
         }
     }
 ```
+
+
+
+
+### 柯里化
+柯里化 把一个多参的函数改为分别传入
+实现来说就是return 保存上一个参数的函数调用
+```javascript
+    function add(x = 0,y = 0) {
+        return x+y
+    }
+```
+改为柯里化
+```javascript
+    function add(x = 0) {
+        return function(y = 0) {
+            return x+y
+        }
+    }
+```
+我一直认为柯里化使用场景很少 (可能也是并没有理解)
+或者这种封装的
+```javascript
+    function curry(fn){
+        let arr = Array.prototype.slice.call(arguments,1),
+            length = fn.length;
+        function callback(){
+            arr = arr.concat(Array.prototype.slice.call(arguments,0));
+            if(arr.length>=length){
+                fn.apply(this,arr)
+            }else{
+                return callback
+            }
+        } 
+        return callback 
+    }
+```
+这种其实就是在参数满足fn的个数的时候调用或者别的判断调用方式也可以 比如不传参数的时候
+
+
+
+
+
