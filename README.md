@@ -126,14 +126,25 @@
 
 ### vertical-align
 定义行内元素的基线 就是水平如何对齐 默认就是baseline
-inline block根据自己最后一个line box 的基线算 没有就按照margin-bottom 算
-那其实注意的地方就只有一点 就是overflow的设置 如果一个inline-block设置了非visible那么他不在根据自己最后一个line box 的基线来计算而是根据margin-bottom来算 
+inline block根据自己最后一个inline box 的基线算 没有就按照margin-bottom 算
+那其实注意的地方就只有一点 就是overflow的设置 如果一个inline-block设置了非visible那么他不在根据自己最后一个inline box 的基线来计算而是根据margin-bottom来算 
 
 造成这样的原因很简单 如果设置overflow 浏览器不知道最后一个line box还是否会展示出来
 
 ### em
 只要一个注意点 也是目前很多人错误的地方 这个值是根据自身的font-size 来计算 只有在font-size上是根据父节点的font-size来计算 (不知道为什么很多博客都发错这个)
 
+### 置换元素和费置换元素
+
+置换元素就是内容根据属性来展示 而且内容不受格式化模型来控制(就是那个各种块、框的概念)置换唯一需要注意的就是他可以设置宽高即使他是个行内元素
+
+### 递归优化
+
+递归在使用中 如果数据量过大会导致栈溢出 这种情况很简单尾递归优化 (目前没有明确的语法能够调用 只能是浏览器自己存在这种优化)
+
+还有一种方法 setTimeout
+之所以溢出是因为我们不断调用函数并返回他导致形成了一个很长的函数调用栈，但是里面保存的都是我们并不需要的信息
+利用setTImeout 把这个函数推入event loop 这个函数单独调用 没有了引用 那些不需要的数据就会被回收掉
 
 
 
