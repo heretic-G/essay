@@ -125,7 +125,7 @@
 缓存函数算是我们在开发中比较常用的方法
 
 ### vertical-align
-定义行内元素的基线 就是水平如何对齐 默认就是baseline
+定义行内元素的基线 就是垂直如何对齐 默认就是baseline
 inline block根据自己最后一个inline box 的基线算 没有就按照margin-bottom 算
 那其实注意的地方就只有一点 就是overflow的设置 如果一个inline-block设置了非visible那么他不在根据自己最后一个inline box 的基线来计算而是根据margin-bottom来算 
 
